@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            background-image: url('https://media.istockphoto.com/id/1157988186/photo/apple-stores-in-the-evening-busy-apple-stores-and-people-on-the-road.jpg?s=612x612&w=0&k=20&c=OEchu1ikHC2mQfzxBnd_QDz6I8lIY61E8KpsXe67o7k='); /* Replace 'background.jpg' with the path to your background image */
+            background-size: cover;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        h2 {
+            color: #343A40;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h1 class="mt-2">Stock Price Prediction App</h1>
+                    <form method="POST">
+                        <div class="form-group">
+                            <h2>Enter the last 10 days' closing prices for AAPL:</h2>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_1">Day 1: </label>
+                            <input type="number" name="day_1" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_2">Day 2: </label>
+                            <input type="number" name "day_2" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_3">Day 3: </label>
+                            <input type="number" name="day_3" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_4">Day 4: </label>
+                            <input type="number" name="day_4" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_5">Day 5: </label>
+                            <input type="number" name="day_5" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_6">Day 6: </label>
+                            <input type="number" name="day_6" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_7">Day 7: </label>
+                            <input type="number" name="day_7" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_8">Day 8: </label>
+                            <input type="number" name="day_8" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_9">Day 9: </label>
+                            <input type="number" name="day_9" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="day_10">Day 10: </label>
+                            <input type="number" name="day_10" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Predict" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+                
+                {% if predicted_price %}
+                <div class="result-container">
+                    <div class="result">
+                        <h2>Prediction Result</h2>
+                        <p>Predicted Stock Price for the next day: ${{ predicted_price|round(2) }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
